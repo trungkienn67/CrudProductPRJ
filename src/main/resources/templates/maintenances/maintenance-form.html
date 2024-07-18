@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <title>Maintenance Form</title>
+</head>
+<body>
+<div class="container">
+    <h2>Maintenance Form</h2>
+    <form th:action="@{/maintenances/save}" th:object="${maintenance}" method="post">
+        <input type="hidden" th:field="*{maintenanceId}" />
+        <div class="form-group">
+            <label for="carId">Car ID:</label>
+            <input type="text" class="form-control" id="carId" th:field="*{carId}" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <input type="text" class="form-control" id="description" th:field="*{description}" required>
+        </div>
+        <div class="form-group">
+            <label for="cost">Cost:</label>
+            <input type="text" class="form-control" id="cost" th:field="*{cost}" required>
+        </div>
+        <div class="form-group">
+            <label for="maintenanceType">Maintenance Type:</label>
+            <input type="text" class="form-control" id="maintenanceType" th:field="*{maintenanceType}" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a th:href="@{/maintenances/list}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+</body>
+</html>
